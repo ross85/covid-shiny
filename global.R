@@ -17,7 +17,7 @@ nazione.files <- '../COVID-19/dati-andamento-nazionale/'
 regioni.files <- '../COVID-19/dati-regioni/'
 province.files <- '../COVID-19/dati-province/'
 
-popolazione <- fread("../data/popolazione.csv")
+popolazione <- fread("./data/popolazione.csv")
 
 dati.nazione <- do.call('bind_rows', lapply(list.files(nazione.files, pattern = "dpc-covid19-ita-andamento-nazionale-202.*"), function(x) fread(paste(nazione.files, x, sep = ""))))
 dati.nazione <- dati.nazione %>% mutate(data = as.Date(substring(data,1,10)))

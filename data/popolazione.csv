@@ -1,0 +1,108 @@
+denominazione_regione,denominazione_provincia,maschi,femmine,popolazione
+Piemonte,Torino,1092504,1167019,2259523
+Piemonte,Vercelli,82848,88063,170911
+Piemonte,Novara,179588,189430,369018
+Piemonte,Cuneo,289459,297639,587098
+Piemonte,Asti,105011,109627,214638
+Piemonte,Alessandria,204552,216732,421284
+Piemonte,Biella,84297,91288,175585
+Piemonte,Verbano-Cusio-Ossola,76820,81529,158349
+Valle d'Aosta,Aosta,61423,64243,125666
+Liguria,Imperia,103075,110765,213840
+Liguria,Savona,132401,143663,276064
+Liguria,Genova,400324,440856,841180
+Liguria,La Spezia,105960,113596,219556
+Lombardia,Varese,433730,457038,890768
+Lombardia,Como,293884,305320,599204
+Lombardia,Sondrio,88868,92227,181095
+Lombardia,Milano,1576316,1673999,3250315
+Lombardia,Bergamo,552870,561720,1114590
+Lombardia,Brescia,624201,641753,1265954
+Lombardia,Pavia,266741,279147,545888
+Lombardia,Cremona,176880,182075,358955
+Lombardia,Mantova,202666,209626,412292
+Lombardia,Lecco,166367,171013,337380
+Lombardia,Lodi,113663,116535,230198
+Lombardia,Monza e della Brianza,428265,445670,873935
+P.A. Bolzano,Bolzano,262713,268465,531178
+P.A. Trento,Trento,265497,275601,541098
+Veneto,Verona,454113,472384,926497
+Veneto,Vicenza,424877,437541,862418
+Veneto,Belluno,98519,104431,202950
+Veneto,Treviso,436607,451199,887806
+Veneto,Venezia,414085,439253,853338
+Veneto,Padova,457404,480504,937908
+Veneto,Rovigo,114178,120759,234937
+Friuli Venezia Giulia,Udine,256276,272515,528791
+Friuli Venezia Giulia,Gorizia,68522,70881,139403
+Friuli Venezia Giulia,Trieste,112538,121955,234493
+Friuli Venezia Giulia,Pordenone,153466,159067,312533
+Emilia-Romagna,Piacenza,140530,146622,287152
+Emilia-Romagna,Parma,220524,231107,451631
+Emilia-Romagna,Reggio nell'Emilia,261563,270328,531891
+Emilia-Romagna,Modena,345394,359999,705393
+Emilia-Romagna,Bologna,489227,525392,1014619
+Emilia-Romagna,Ferrara,166099,179592,345691
+Emilia-Romagna,Ravenna,189390,200066,389456
+Emilia-Romagna,Forlì-Cesena,191995,202632,394627
+Emilia-Romagna,Rimini,163813,175204,339017
+Toscana,Massa Carrara,94108,100770,194878
+Toscana,Lucca,187299,200577,387876
+Toscana,Pistoia,140948,151525,292473
+Toscana,Firenze,485167,526182,1011349
+Toscana,Livorno,161309,173523,334832
+Toscana,Pisa,203825,215212,419037
+Toscana,Arezzo,166953,175701,342654
+Toscana,Siena,128603,138594,267197
+Toscana,Grosseto,106993,114636,221629
+Toscana,Prato,125536,132180,257716
+Umbria,Perugia,316873,339509,656382
+Umbria,Terni,107946,117687,225633
+Marche,Pesaro e Urbino,175224,183662,358886
+Marche,Ancona,227970,243258,471228
+Marche,Macerata,152632,161546,314178
+Marche,Ascoli Piceno,100312,106867,207179
+Marche,Fermo,84789,89011,173800
+Lazio,Viterbo,155227,161803,317030
+Lazio,Rieti,76907,78596,155503
+Lazio,Roma,2081239,2260973,4342212
+Lazio,Latina,284526,290728,575254
+Lazio,Frosinone,240507,248576,489083
+Abruzzo,L'Aquila,147868,151163,299031
+Abruzzo,Teramo,150803,157249,308052
+Abruzzo,Pescara,153590,165319,318909
+Abruzzo,Chieti,187875,197713,385588
+Molise,Campobasso,108750,112488,221238
+Molise,Isernia,41830,42549,84379
+Campania,Caserta,451931,471034,922965
+Campania,Benevento,135931,141087,277018
+Campania,Napoli,1497289,1587601,3084890
+Campania,Avellino,205626,212680,418306
+Campania,Salerno,537713,560800,1098513
+Puglia,Foggia,305170,317013,622183
+Puglia,Bari,610856,641138,1251994
+Puglia,Taranto,279656,297100,576756
+Puglia,Brindisi,189878,203097,392975
+Puglia,Lecce,381571,413563,795134
+Puglia,Barletta-Andria-Trani,192772,197239,390011
+Basilicata,Potenza,179328,185632,364960
+Basilicata,Matera,97369,100540,197909
+Calabria,Cosenza,345701,360052,705753
+Calabria,Catanzaro,174797,183519,358316
+Calabria,Reggio di Calabria,267428,280581,548009
+Calabria,Crotone,88397,86583,174980
+Calabria,Vibo Valentia,79350,80723,160073
+Sicilia,Trapani,211304,219188,430492
+Sicilia,Palermo,605997,646591,1252588
+Sicilia,Messina,302546,324330,626876
+Sicilia,Agrigento,211710,223160,434870
+Sicilia,Caltanissetta,126891,135567,262458
+Sicilia,Enna,79853,84935,164788
+Sicilia,Catania,538402,569300,1107702
+Sicilia,Ragusa,159015,161878,320893
+Sicilia,Siracusa,196871,202353,399224
+Sardegna,Sassari,242322,249249,491571
+Sardegna,Nuoro,102780,105770,208550
+Sardegna,Cagliari,208867,222171,431038
+Sardegna,Oristano,77731,79976,157707
+Sardegna,Sud Sardegna,174062,176663,350725
