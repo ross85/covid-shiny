@@ -13,9 +13,11 @@ if (file.exists('/Users/mross09/Documents/covid/covid-shiny')) {
   setwd('C:/Users/marco/Dropbox/covid/covid-shiny')
 }
 
-nazione.files <- '../COVID-19/dati-andamento-nazionale/'
-regioni.files <- '../COVID-19/dati-regioni/'
-province.files <- '../COVID-19/dati-province/'
+data.folder <- '../COVID-19/'
+
+nazione.files <- paste0(data.folder,'dati-andamento-nazionale/')
+regioni.files <- paste0(data.folder,'dati-regioni/')
+province.files <- paste0(data.folder,'dati-province/')
 
 popolazione <- fread("./data/popolazione.csv")
 
