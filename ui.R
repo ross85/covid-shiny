@@ -15,7 +15,7 @@ shinyUI(
         dashboardHeader(),
         dashboardSidebar(
             sidebarMenu(
-                menuItem("Overall", tabName = "overall", icon = icon("th")),
+                menuItem("Sommario", tabName = "overall", icon = icon("th")),
                 menuItem("Nazionale", tabName = "nazione", icon = icon("th")),
                 menuItem("Regioni", tabName = "regioni", icon = icon("th")),
                 menuItem("Regioni a confronto", tabName = "regioni_confronto", icon = icon("th")),
@@ -23,7 +23,7 @@ shinyUI(
             )
         ),
         dashboardBody(
-            sliderInput("start.date",label = "Start date",value = max(dati.nazione.plus$data)-30, max = max(dati.nazione.plus$data), min = min(dati.nazione.plus$data), timeFormat="%d/%m/%Y"),
+            sliderInput("start.date",label = "Data di inizio",value = max(dati.nazione.plus$data)-30, max = max(dati.nazione.plus$data), min = min(dati.nazione.plus$data), timeFormat="%d/%m/%Y"),
             tabItems(
                 tabItem(tabName = "overall",
                         fluidRow(
@@ -123,10 +123,10 @@ shinyUI(
                         sidebarLayout(
                             sidebarPanel(
                                 selectInput("region",
-                                            "Region:",
+                                            "Regione:",
                                             choices = sort(unique(dati.province.plus$denominazione_regione)),
                                             selected = "Lombardia"),
-                                radioButtons("metric", "Aggregation:", c("Overall", "Daily", "Weekly"), "Overall"),
+                                radioButtons("metric", "Aggregazione:", c("Overall", "Daily", "Weekly"), "Overall"),
                                 checkboxInput("province.relative", "Per 1000 People")
                             ),
                             
@@ -141,8 +141,8 @@ shinyUI(
                         titlePanel("Regioni"),
                         sidebarLayout(
                             sidebarPanel(
-                                radioButtons("regioni.agg", "Aggregation:", c("Overall", "Daily","Weekly"), "Overall"),
-                                checkboxGroupInput("regione", "Region", sort(unique(dati.regione.plus$denominazione_regione)), "Lombardia")
+                                radioButtons("regioni.agg", "Aggregazione:", c("Overall", "Daily","Weekly"), "Overall"),
+                                checkboxGroupInput("regione", "Regione", sort(unique(dati.regione.plus$denominazione_regione)), "Lombardia")
                             ),
                             
                             mainPanel(
@@ -157,7 +157,7 @@ shinyUI(
                             sidebarLayout(
                                 sidebarPanel(
                                     selectInput("confronto.metric",
-                                                "Metric:",
+                                                "Metrica:",
                                                 choices = c(overall.vars,daily.vars,weekly.vars),
                                                 selected = "settimanale_totale_casi")
                                 ),
@@ -170,10 +170,10 @@ shinyUI(
                 ),
                 tabItem(tabName = "nazione",
                     fluidPage(
-                        titlePanel("Overall"),
+                        titlePanel("Nazionale"),
                         sidebarLayout(
                             sidebarPanel(
-                                radioButtons("nazione.agg", "Aggregation:", c("Overall", "Daily","Weekly"), "Overall")
+                                radioButtons("nazione.agg", "Aggregazione:", c("Overall", "Daily","Weekly"), "Overall")
                             ),
                             
                             mainPanel(
