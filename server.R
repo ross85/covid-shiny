@@ -36,7 +36,7 @@ shinyServer(function(input, output) {
         }
         
         valueBox(
-            paste0(formatC(multiplier*((num-den)/(abs(den))), digits = digits, big.mark = ",", format="f"),suffix), paste0("Variazione Percentuale Rispetto alla Settimana ",filter_value), icon = icon("list"),
+            paste0(formatC(multiplier*((num-den)/(abs(den))), digits = digits, big.mark = ",", format="f"),suffix), paste0("Variazione Percentuale Week on Week ",filter_value), icon = icon("list"),
             color = "purple"
         )
     }
