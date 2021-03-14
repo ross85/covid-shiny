@@ -6,14 +6,9 @@ library(dplyr)
 library(shinydashboard)
 library(tidyr)
 library(zoo)
+library(here)
 
-if (file.exists('/Users/mross09/Documents/covid/covid-shiny')) {
-  setwd('/Users/mross09/Documents/covid/covid-shiny')
-} else {
-  setwd('C:/Users/marco/Dropbox/covid/covid-shiny')
-}
-
-data.folder <- '../COVID-19/'
+data.folder <- file.path(dirname(here()), 'COVID-19/')
 
 nazione.files <- paste0(data.folder,'dati-andamento-nazionale/')
 regioni.files <- paste0(data.folder,'dati-regioni/')
