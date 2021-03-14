@@ -10,9 +10,9 @@ library(here)
 
 data.folder <- file.path(dirname(here()), 'COVID-19/')
 
-nazione.files <- paste0(data.folder,'dati-andamento-nazionale/')
-regioni.files <- paste0(data.folder,'dati-regioni/')
-province.files <- paste0(data.folder,'dati-province/')
+nazione.files <- paste0(data.folder,'/dati-andamento-nazionale/')
+regioni.files <- paste0(data.folder,'/dati-regioni/')
+province.files <- paste0(data.folder,'/dati-province/')
 
 popolazione <- fread("./data/popolazione.csv")
 
