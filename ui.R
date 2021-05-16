@@ -74,11 +74,27 @@ shinyUI(
                         fluidRow(
                             splitLayout(
                                 verticalLayout(
+                                    valueBoxOutput("bigNumbers31", width = 12),
+                                    valueBoxOutput("bigNumbers32", width = 12)
+                                ),
+                                plotlyOutput("plot11")
+                            )),
+                        fluidRow(
+                            splitLayout(
+                                verticalLayout(
                                     valueBoxOutput("bigNumbers22", width = 12),
                                     valueBoxOutput("bigNumbers23", width = 12),
                                     valueBoxOutput("bigNumbers24", width = 12)
                                 ),
                                 plotlyOutput("plot8")
+                            )),
+                        fluidRow(
+                            splitLayout(
+                                verticalLayout(
+                                    valueBoxOutput("bigNumbers33", width = 12),
+                                    valueBoxOutput("bigNumbers34", width = 12)
+                                ),
+                                plotlyOutput("plot12")
                             )),
                         fluidRow(
                             splitLayout(
@@ -92,11 +108,27 @@ shinyUI(
                         fluidRow(
                             splitLayout(
                                 verticalLayout(
+                                    valueBoxOutput("bigNumbers35", width = 12),
+                                    valueBoxOutput("bigNumbers36", width = 12)
+                                ),
+                                plotlyOutput("plot13")
+                            )),
+                        fluidRow(
+                            splitLayout(
+                                verticalLayout(
                                     valueBoxOutput("bigNumbers25", width = 12),
                                     valueBoxOutput("bigNumbers26", width = 12),
                                     valueBoxOutput("bigNumbers27", width = 12)
                                 ),
                                 plotlyOutput("plot9")
+                            )),
+                        fluidRow(
+                            splitLayout(
+                                verticalLayout(
+                                    valueBoxOutput("bigNumbers37", width = 12),
+                                    valueBoxOutput("bigNumbers38", width = 12)
+                                ),
+                                plotlyOutput("plot14")
                             )),
                         fluidRow(
                             splitLayout(
