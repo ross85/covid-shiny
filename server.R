@@ -131,26 +131,67 @@ shinyServer(function(input, output) {
     output$bigNumbers30 <- renderValueBox({
         get_box_ratio_value(dati.nazione.plus, "set_totale_casi_prc_rapporto", "set_totale_casi_prc_rapporto", offset = 7)
     })
+    output$bigNumbers31 <- renderValueBox({
+        get_box_single_value(dati.regione.plus, "terapia_intensiva", "denominazione_regione", "Lombardia")
+    })
+    output$bigNumbers32 <- renderValueBox({
+        get_box_ratio_value(dati.regione.plus, "terapia_intensiva", "terapia_intensiva", "denominazione_regione", "Lombardia", offset = 7)
+    })
+    output$bigNumbers33 <- renderValueBox({
+        get_box_single_value(dati.nazione.plus, "terapia_intensiva")
+    })
+    output$bigNumbers34 <- renderValueBox({
+        get_box_ratio_value(dati.nazione.plus, "terapia_intensiva", "terapia_intensiva", offset = 7)
+    })
+    output$bigNumbers35 <- renderValueBox({
+        get_box_single_value(dati.regione.plus, "ricoverati_con_sintomi", "denominazione_regione", "Lombardia")
+    })
+    output$bigNumbers36 <- renderValueBox({
+        get_box_ratio_value(dati.regione.plus, "ricoverati_con_sintomi", "ricoverati_con_sintomi", "denominazione_regione", "Lombardia", offset = 7)
+    })
+    output$bigNumbers37 <- renderValueBox({
+        get_box_single_value(dati.nazione.plus, "ricoverati_con_sintomi")
+    })
+    output$bigNumbers38 <- renderValueBox({
+        get_box_ratio_value(dati.nazione.plus, "ricoverati_con_sintomi", "ricoverati_con_sintomi", offset = 7)
+    })
     
-    get_trends_plot <- function(df, y1="gio_totale_casi", y2="set_totale_casi", filter_field=NULL, filter_value=NULL, digits = 1, suffix="%", multiplier = 100) {
+    
+    get_trends_plot <- function(df, y1="gio_totale_casi", y2="set_totale_casi", n_series = 2, filter_field=NULL, filter_value=NULL, digits = 1, suffix="%", multiplier = 100) {
         
         if (!is.null(filter_field))
             df <- df %>% filter(get(filter_field) == filter_value)
         
-        df <- df %>%
-            mutate(y1 = get(y1), y2 = get(y2)) %>%
-            filter(data >= input$start.date)
-        
-        ggplotly(ggplot(df, aes(x = data, y = y1)) +
-                     geom_line(color = "#e60000") +
-                     geom_point(color = "#e60000") +
-                     geom_line(aes(y = y2), linetype = "dashed", color = "#4a4d4e") +
-                     geom_point(aes(y = y2), color = "#4a4d4e") +
-                     labs(y = substr(y1,13,100), x = NULL) +
-                     scale_x_date(date_breaks = "1 week") +
-                     theme(axis.text.x = element_text(angle=45, hjust = 1))) %>%
-            plotly::layout(xaxis = list(autorange = TRUE),
-                           yaxis = list(autorange = TRUE))
+        if (n_series == 2) {
+            df <- df %>%
+                mutate(y1 = get(y1), y2 = get(y2)) %>%
+                filter(data >= input$start.date)
+            
+            ggplotly(ggplot(df, aes(x = data, y = y1)) +
+                         geom_line(color = "#e60000") +
+                         geom_point(color = "#e60000") +
+                         geom_line(aes(y = y2), linetype = "dashed", color = "#4a4d4e") +
+                         geom_point(aes(y = y2), color = "#4a4d4e") +
+                         labs(y = substr(y1,13,100), x = NULL) +
+                         scale_x_date(date_breaks = "1 week") +
+                         theme(axis.text.x = element_text(angle=45, hjust = 1))) %>%
+                plotly::layout(xaxis = list(autorange = TRUE),
+                               yaxis = list(autorange = TRUE))    
+        }
+        else {
+            df <- df %>%
+                mutate(y1 = get(y1)) %>%
+                filter(data >= input$start.date)
+            
+            ggplotly(ggplot(df, aes(x = data, y = y1)) +
+                         geom_line(color = "#e60000") +
+                         geom_point(color = "#e60000") +
+                         labs(y = substr(y1,13,100), x = NULL) +
+                         scale_x_date(date_breaks = "1 week") +
+                         theme(axis.text.x = element_text(angle=45, hjust = 1))) %>%
+                plotly::layout(xaxis = list(autorange = TRUE),
+                               yaxis = list(autorange = TRUE))
+        }
     }
     
     output$plot1 <- renderPlotly({
@@ -183,6 +224,19 @@ shinyServer(function(input, output) {
     output$plot10 <- renderPlotly({
         get_trends_plot(dati.nazione.plus, y1="gio_totale_casi_prc_rapporto", y2="set_totale_casi_prc_rapporto")
     })
+    output$plot11 <- renderPlotly({
+        get_trends_plot(dati.regione.plus, y1="terapia_intensiva", filter_field="denominazione_regione", filter_value="Lombardia", n_series = 1)
+    })
+    output$plot12 <- renderPlotly({
+        get_trends_plot(dati.nazione.plus, y1="terapia_intensiva", n_series = 1)
+    })
+    output$plot13 <- renderPlotly({
+        get_trends_plot(dati.regione.plus, y1="ricoverati_con_sintomi", filter_field="denominazione_regione", filter_value="Lombardia", n_series = 1)
+    })
+    output$plot14 <- renderPlotly({
+        get_trends_plot(dati.nazione.plus, y1="ricoverati_con_sintomi", n_series = 1)
+    })
+    
     
     output$provincePlot <- renderPlotly({
         
