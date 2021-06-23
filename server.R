@@ -15,9 +15,9 @@ shinyServer(function(input, output) {
     get_box_single_value <- function(df, field="gio_totale_casi", filter_field=NULL, filter_value=NULL, digits = 0, suffix="", multiplier = 1) {
         
         if (is.null(filter_field))
-            value = df %>% filter(data == max(data)) %>% pull(get(field))
+            value = df %>% filter(data == input$start.date[2]) %>% pull(get(field))
         else
-            value = df %>% filter(get(filter_field) == filter_value & data == max(data)) %>% pull(get(field))
+            value = df %>% filter(get(filter_field) == filter_value & data == input$start.date[2]) %>% pull(get(field))
         
         valueBox(
             paste0(formatC(multiplier*value, digits = digits, big.mark = ",", format="f"),suffix), paste0(field," ",filter_value), icon = icon("list"),
@@ -28,11 +28,11 @@ shinyServer(function(input, output) {
     get_box_ratio_value <- function(df, field_num="gio_totale_casi", field_den="set_totale_casi", filter_field=NULL, filter_value=NULL, digits = 1, suffix="%", multiplier = 100, offset = 0) {
         
         if (is.null(filter_field)) {
-            num = df %>% filter(data == max(data)) %>% pull(get(field_num))
-            den = df %>% filter(data == (max(data)-offset)) %>% pull(get(field_den))
+            num = df %>% filter(data == input$start.date[2]) %>% pull(get(field_num))
+            den = df %>% filter(data == (input$start.date[2]-offset)) %>% pull(get(field_den))
         } else {
-            num = df %>% filter(get(filter_field) == filter_value & data == max(data)) %>% pull(get(field_num))
-            den = df %>% filter(get(filter_field) == filter_value & data == (max(data)-offset)) %>% pull(get(field_den))
+            num = df %>% filter(get(filter_field) == filter_value & data == input$start.date[2]) %>% pull(get(field_num))
+            den = df %>% filter(get(filter_field) == filter_value & data == (input$start.date[2]-offset)) %>% pull(get(field_den))
         }
         
         valueBox(
@@ -165,7 +165,7 @@ shinyServer(function(input, output) {
         if (n_series == 2) {
             df <- df %>%
                 mutate(y1 = get(y1), y2 = get(y2)) %>%
-                filter(data >= input$start.date)
+                filter(data >= input$start.date[1] & data <= input$start.date[2])
             
             ggplotly(ggplot(df, aes(x = data, y = y1)) +
                          geom_line(color = "#e60000") +
@@ -181,7 +181,7 @@ shinyServer(function(input, output) {
         else {
             df <- df %>%
                 mutate(y1 = get(y1)) %>%
-                filter(data >= input$start.date)
+                filter(data >= input$start.date[1] & data <= input$start.date[2])
             
             ggplotly(ggplot(df, aes(x = data, y = y1)) +
                          geom_line(color = "#e60000") +
@@ -241,7 +241,7 @@ shinyServer(function(input, output) {
     output$provincePlot <- renderPlotly({
         
         df.render <- dati.province.plus %>%
-            filter(data >= input$start.date & denominazione_regione==input$region)
+            filter(data >= input$start.date[1] & data <= input$start.date[2] & denominazione_regione==input$region)
         
         if (input$metric == "Overall") {
             df.render$y <- df.render$totale_casi
@@ -277,7 +277,7 @@ shinyServer(function(input, output) {
         )
         
         df.render <- dati.regione.plus %>%
-            filter(data >= input$start.date & denominazione_regione %in% input$regione) %>%
+            filter(data >= input$start.date[1] & data <= input$start.date[2] & denominazione_regione %in% input$regione) %>%
             select(c("data", vars.selected)) %>%
             group_by(data) %>%
             summarise_all(funs(sum)) %>%
@@ -302,7 +302,7 @@ shinyServer(function(input, output) {
         )
         
         df.render <- dati.nazione.plus %>%
-            filter(data >= input$start.date) %>%
+            filter(data >= input$start.date[1] & data <= input$start.date[2]) %>%
             select(c("data", vars.selected)) %>%
             pivot_longer(-data)
         
@@ -319,7 +319,7 @@ shinyServer(function(input, output) {
     output$regioniConfrontoPlot <- renderPlotly({
         
         df.render <- dati.regione.plus %>%
-            filter(data >= input$start.date) %>%
+            filter(data >= input$start.date[1] & data <= input$start.date[2]) %>%
             select(c("data", denominazione_regione, input$confronto.metric)) %>%
             group_by(data, denominazione_regione) %>%
             summarise_all(funs(sum))
