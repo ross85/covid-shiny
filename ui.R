@@ -23,7 +23,7 @@ shinyUI(
             )
         ),
         dashboardBody(
-            sliderInput("start.date",label = "Data di inizio",value = max(dati.nazione.plus$data)-30, max = max(dati.nazione.plus$data), min = min(dati.nazione.plus$data), timeFormat="%d/%m/%Y"),
+            dateRangeInput("start.date",label = "Data di inizio",start = max(dati.nazione.plus$data)-30, end = max(dati.nazione.plus$data), max = max(dati.nazione.plus$data), min = min(dati.nazione.plus$data)),
             tabItems(
                 tabItem(tabName = "overall",
                         fluidRow(
